@@ -1,0 +1,22 @@
+body{
+	margin: 0px;
+}
+
+.container{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	background-color: #000;
+}
+
+#content{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	font-family: 'Reenie Beanie', cursive;
+	color: white;
+	font-size: 4em;
+	
+}
+
