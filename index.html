@@ -2,16 +2,34 @@
     <head>
         <meta charset="UTF-8">
         <title>Alison</title>
-        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet"> 
     </head>
 
     <body>
        <div class="container">
-        <div id="content">
+        <div id="ctr-menu">
+            <img src="img/settings2.png">
         </div>
-        <slider>
-        </slider>
+        <div id="menu">
+            <h2>Settings</h2>
+            <form id="settings">
+                <label>Please select a date:</label>
+                <input type="date" value="18/02/2018">
+                <br>
+                <br>
+                <label>Change color:</label><br>
+                <label class="lcolor">Red: </label>
+                <input id="color1" class="color" type="range" min=0 max=255 value=0>
+                <label class="lcolor">Green: </label>
+                <input id="color2" class="color" type="range" min=0 max=255 value=0>
+                <label class="lcolor">Blue: </label>
+                <input id="color3" class="color" type="range" min=0 max=255 value=0>
+            </form>
+        </div>
+        <div id="content">
+            
+        </div>
        </div>
        <script src="js/main.js"></script>
     </body>
