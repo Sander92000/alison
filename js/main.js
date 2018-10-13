@@ -1,10 +1,4 @@
 // Eventlistener
-document.getElementById('ctr-menu').addEventListener('click', displayMenu);
-document.getElementById('color1').addEventListener('change', changeColor);
-document.getElementById('color2').addEventListener('change', changeColor);
-document.getElementById('color3').addEventListener('change', changeColor);
-
-window.onload = main;
 
 function main(){
 	var startDate = new Date("02/18/2017 18:00");
