@@ -1,5 +1,7 @@
 html, body {
-  margin: 0px;
-  background-color: black; }
+  margin: 0px; }
+
+p {
+  font-family: Reenie Beanie; }
 
 /*# sourceMappingURL=main.css.map */
