@@ -1,9 +1,23 @@
+// Params
+let enableClock = document.getElementById("showClock");
+let enableText = document.getElementById("showTime");
+
+// Create clock object
+let clock = new Clock();
+
+// Eventlisteners
+enableClock.addEventListener("change", showClock);
+enableText.addEventListener("change", showText);
+
 let c = document.getElementById('alisonCanvas');
 let ctx = c.getContext("2d");
 
 // Position variables
-c.width = window.innerWidth;
+c.width = 1152;
 c.height = window.innerHeight;
+
+// Colors
+let white = '#FEFFFD';
 
 // Time variables
 let years = 0;
@@ -13,28 +27,18 @@ let hours = 0;
 let minutes = 0;
 let seconds = 0;
 
-// Color variables
-let colors = ['#FEFFFD','#00FF0D','#FF0079','#0C3EE8','#FF5000'];
-let white = '#FEFFFD';
-let green = '#00FF0D';
-let pink = '#FF0079';
-let blue = '#0C3EE8';
-let orange = '#FF5000';
-
-
 let startDate = new Date("02/18/2017 18:00");
 
 setup();
 
 function setup(){
     
-    //Set background
-    
+    //Set background    
     ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, c.width, c.height);
 
     // Call draw function
-    setInterval(draw, 1000);
+    setInterval(draw, 10);
 }
 
 function draw(){
@@ -42,74 +46,8 @@ function draw(){
     ctx.clearRect(0,0, c.width, c.height);
 
     updateTime();
-    displayText();
-    displayClock();
-}
-
-function displayText(){
-    posX = (c.width/2)-70;
-    posY = (c.height/2)+40;
-    //Print text
-    ctx.font = "40px Reenie Beanie";
-    ctx.fillStyle = white;
-    ctx.fillText("Années: " + years, posX, posY-120);
-    ctx.fillText("Mois: " + months, posX, posY-80);
-    ctx.fillText("Jours: " + days, posX, posY-40);
-    ctx.fillText("Heures: " + hours, posX, posY);
-    ctx.fillText("Minutes: " + minutes, posX, posY+40);
-    ctx.fillText("Secondes: " + seconds, posX, posY+80);
-}
-
-function displayClock(){
-    let radius = 200;
-    let lWidth = 30;
-    let spacing = 35;
-    let startPos = -1.5708;
-
-    //draw circle
-    //for (i=0; i<=5; i++){
-    //    ctx.beginPath();
-    //    ctx.arc(c.width/2, c.height/2, 200, startPos, (2*Math.PI)*(seconds/60));
-    //    ctx.strokeStyle = colors[i];
-    //    ctx.lineWidth = lWidth;
-    //    ctx.stroke();
-    //}
-    // Seconds:
-    ctx.beginPath();
-    ctx.arc(c.width/2, c.height/2, radius, startPos, (2*Math.PI)*(seconds/60)+startPos);
-    ctx.strokeStyle = white;
-    ctx.lineWidth = lWidth;
-    ctx.stroke();
-    // Minutes:
-    ctx.beginPath();
-    ctx.arc(c.width/2, c.height/2, 200 + spacing, startPos, (2*Math.PI)*(minutes/60)+startPos);
-    ctx.strokeStyle = green;
-    ctx.lineWidth = lWidth;
-    ctx.stroke();
-    // Hours:
-    ctx.beginPath();
-    ctx.arc(c.width/2, c.height/2, 200 + (2 * spacing), startPos, (2*Math.PI)*(hours/24)+startPos);
-    ctx.strokeStyle = pink;
-    ctx.lineWidth = lWidth;
-    ctx.stroke();
-    // Days:
-    ctx.beginPath();
-    ctx.arc(c.width/2, c.height/2, 200 + (3 * spacing), startPos, (2*Math.PI)*(days/30)+startPos);
-    ctx.strokeStyle = blue;
-    ctx.lineWidth = lWidth;
-    ctx.stroke();
-    // Months:
-    ctx.beginPath();
-    ctx.arc(c.width/2, c.height/2, 200 + (4 * spacing), startPos, (2*Math.PI)* (months/12)+startPos);
-    ctx.strokeStyle = orange;
-    ctx.lineWidth = lWidth;
-    ctx.stroke();
-    // Years:
-    //ctx.beginPath();
-    //ctx.arc(c.width/2, c.height/2, 200 + (5 * spacing), startPos , (2*Math.PI)*(hours/24));
-    //ctx.strokeStyle = blue;
-    //ctx.lineWidth = lWidth;
-    //ctx.stroke();
+    clock.drawText(seconds, minutes, hours, days, months);
+    clock.drawClock(seconds, minutes, hours, days, months);
 }
 
 function updateTime(){
@@ -148,4 +86,12 @@ function transformMS(milliseconds){
 		minutes: minutes, 
 		seconds: seconds
 	}
+}
+
+function showClock(){
+	clock.showClock = enableClock.checked;
+}
+
+function showText(){
+	clock.showText = enableText.checked;
 }
