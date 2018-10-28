@@ -7,11 +7,48 @@
     </head>
 
     <body>
-        <canvas id="alisonCanvas">
-
-        </canvas>
+        <div class="container">
+            <div class="content">
+                <canvas id="alisonCanvas"></canvas>
+            </div>
+            <div id="settings">
+                <div class="settings-header">
+                    <img src="img/settings.png" id="show-settings">    
+                </div>
+                <div class="settings-menu" id="settings-menu">
+                    <h3>Paramètres</h3>
+                    <hr>
+                    <label>Date:</label>
+                    <input type="date" value="2017-02-18">
+                    <br>
+                    <label>Montrer horloge:</label>
+                    <input id="showClock" type="checkbox" checked>
+                    <br>
+                    <label>Montrer temps passé</label>
+                    <input id="showTime" type="checkbox" checked/>
+                    
+                    <h4>Changer couleur</h4>
+                    <label class="color">Rouge</label>
+                    <input id="red" type="range" min="0" max="255" value="0"/><br>
+                    <label class="color">Vert</label>
+                    <input id="green" type="range" min="0" max="255" value="0"/><br>
+                    <label class="color">Bleu</label>
+                    <input id="blue" type="range" min="0" max="255" value="0"/><br>
+                    <div id="color-prev">
+                    </div>
+                    <button id="apply-color">Apply color</button>
+                    <hr>
+                    <div id="add-new">
+                        <img src="img/test.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
        </div>
        <script src="js/main.js"></script>
+       <script src="js/clock.js"></script>
        <script src="js/canvas.js"></script>
     </body>
     

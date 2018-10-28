@@ -1,7 +1,42 @@
 html, body {
-  margin: 0px; }
-
-p {
-  font-family: Reenie Beanie; }
+  margin: 0px;
+  background-color: black;
+  overflow: hidden; }
+  html p, body p {
+    font-family: Reenie Beanie; }
+  html .content, body .content {
+    float: left;
+    width: 80%;
+    display: relative; }
+  html #settings, body #settings {
+    float: left;
+    width: 20%;
+    height: 100vh;
+    background-color: black; }
+    html #settings .settings-header, body #settings .settings-header {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%; }
+      html #settings .settings-header img, body #settings .settings-header img {
+        width: 30px;
+        height: 30px;
+        margin: 15px; }
+    html #settings .settings-menu, body #settings .settings-menu {
+      width: 90%;
+      margin: auto;
+      visibility: hidden;
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px; }
+      html #settings .settings-menu button, body #settings .settings-menu button {
+        margin: 5px; }
+      html #settings .settings-menu .color, body #settings .settings-menu .color {
+        display: inline-block;
+        width: 50px; }
+      html #settings .settings-menu #color-prev, body #settings .settings-menu #color-prev {
+        height: 20px;
+        width: 90%;
+        margin: 5px;
+        background-color: black; }
 
 /*# sourceMappingURL=main.css.map */
